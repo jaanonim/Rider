@@ -24,12 +24,14 @@ public class levelgGenerato : MonoBehaviour {
 
     private void Update()
     {
-        if(position.x-30f < g.position.x)
+        if (g != null)
         {
-            Generator();
-            Destroy(o[ile - 5]);
+            if (position.x - 30f < g.position.x)
+            {
+                Generator();
+                Destroy(o[ile - 5]);
+            }
         }
-        
     }
 
     // Update is called once per frame

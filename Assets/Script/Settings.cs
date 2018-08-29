@@ -8,7 +8,8 @@ using TMPro;
 
 public class Settings : MonoBehaviour {
 
-    public AudioMixer mixer;
+    public AudioMixer mixerM;
+    public AudioMixer mixerS;
 
 
     public Dropdown rd;
@@ -46,9 +47,14 @@ public class Settings : MonoBehaviour {
         Screen.SetResolution(ra.width,ra.height, Screen.fullScreen);
     }
 
-    public void Volume (float v)
+    public void Music (float v)
     {
-        mixer.SetFloat("v",v);
+        mixerM.SetFloat("v",v);
+	}
+
+    public void Sounds (float v)
+    {
+        mixerS.SetFloat("v",v);
 	}
 
     public void Qality(int index)

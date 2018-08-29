@@ -309,6 +309,7 @@ MonoBehaviour:
   m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -536,7 +537,8 @@ AudioSource:
   m_GameObject: {fileID: 1128206326}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0a1374e69af55574895953b60cb8e4ff,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 6b1f9bd9cf3720c46bdfc9d5fc851fdd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.75

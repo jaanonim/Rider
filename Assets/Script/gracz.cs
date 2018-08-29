@@ -102,7 +102,7 @@ public class gracz : MonoBehaviour {
         }
 
     }
-
+ 
     void del()
     {
         gameObject.SendMessage("save");
