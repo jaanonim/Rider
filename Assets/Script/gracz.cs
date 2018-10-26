@@ -15,11 +15,21 @@ public class gracz : MonoBehaviour {
     private Vector3 lastPosition;
     public float m;
     public GameObject o;
+    public SkinsData skins;
+
 
     private void Start()
     {
         SpriteRenderer s = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-        s.sprite = auto.t;
+        if(PlayerPrefs.GetInt("skin", -1)==-1)
+        {
+            s.sprite = auto.t;
+        }
+        else
+        {
+            s.sprite = skins.s[PlayerPrefs.GetInt("skin", 0)];
+        }
+        
         auto.speed = PlayerPrefs.GetFloat("s", auto.speed);
         auto.maxSpeed = PlayerPrefs.GetFloat("ms", auto.maxSpeed);
         auto.speedRot = PlayerPrefs.GetFloat("rs", auto.speedRot);
@@ -51,10 +61,12 @@ public class gracz : MonoBehaviour {
         {
             if (!kolizja)
             {
-                if (auto.maxSpeedRot * 10 > r.angularVelocity)
+               
+                
+                if (auto.maxSpeedRot*10  > r.angularVelocity)
                 {
 
-                    r.AddTorque(auto.speedRot * Time.fixedDeltaTime);
+                    r.AddTorque(auto.speedRot * Time.fixedDeltaTime,ForceMode2D.Force);
                 }
             }
             else
@@ -63,16 +75,18 @@ public class gracz : MonoBehaviour {
                 if (auto.maxSpeed > m)
                 {
                     Vector2 move = new Vector2(auto.speed, 0) * Time.fixedDeltaTime;
-                    r.AddForce(transform.rotation * move);
+                    r.AddForce(transform.rotation * move,ForceMode2D.Force);
 
                 }
             }
         }
         else
         {
+           
+
             if((auto.maxSpeedRot/20 < r.angularVelocity) &&(!kolizja))
             {
-                r.AddTorque(-auto.speedRot/50* Time.deltaTime);
+                r.AddTorque(-auto.speedRot/50* Time.deltaTime,ForceMode2D.Force);
             }
         }
     }

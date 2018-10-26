@@ -8,11 +8,16 @@ public class licznikPkt : MonoBehaviour {
     public int ptk;
     public int odleglosc = 15;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI textR;
     public Rigidbody2D r;
     public auto a;
     float timer;
     bool obrut;
     bool koilzja;
+    float rot;
+    float flip=0;
+    float rotl;
+    
     
 
     void plus()
@@ -39,6 +44,19 @@ public class licznikPkt : MonoBehaviour {
             plus();
         }
         //Debug.Log(r.angularVelocity);
+        
+        rot += r.angularVelocity*Time.deltaTime;
+        if(rot>=360)
+        {
+            rot -= 360;
+            plus();
+            flip++;
+            textR.text = flip.ToString();
+
+        }
+        
+
+        /*
 
         if (timer > 0.5 && !koilzja && obrut && transform.rotation.eulerAngles.z>-10 && transform.rotation.eulerAngles.z < 10)
        {
@@ -51,8 +69,8 @@ public class licznikPkt : MonoBehaviour {
            
            obrut = true;
            timer = 0;
-       }
-        
+       }*/
+
 
     }
 

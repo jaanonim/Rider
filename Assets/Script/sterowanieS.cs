@@ -20,9 +20,10 @@ public class sterowanieS : MonoBehaviour {
     public TextMeshProUGUI t6;
     public auto a;
     public PhysicsMaterial2D p;
+    public SkinsData skins;
 
     // Use this for initialization
-    public void ok () {
+    public void ok() {
         s1.value = a.speed;
         t1.text = a.speed.ToString();
 
@@ -34,7 +35,7 @@ public class sterowanieS : MonoBehaviour {
 
         s4.value = a.maxSpeedRot;
         t4.text = a.maxSpeedRot.ToString();
-        
+
         s5.value = p.friction;
         t5.text = p.friction.ToString();
 
@@ -47,8 +48,18 @@ public class sterowanieS : MonoBehaviour {
         a.maxSpeed = PlayerPrefs.GetFloat("ms", a.maxSpeed);
         a.speedRot = PlayerPrefs.GetFloat("rs", a.speedRot);
         a.maxSpeedRot = PlayerPrefs.GetFloat("mrs", a.maxSpeedRot);
+
         ok();
     }
+
+    public void Skin(int v)
+    {
+         
+        a.t = skins.s[v];
+        PlayerPrefs.SetInt("skin", v);
+
+    }
+
 
 
 }
