@@ -1,2 +1,2 @@
-# rider
+# Rider
 Rider game from ketchapp
